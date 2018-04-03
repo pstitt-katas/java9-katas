@@ -3,11 +3,11 @@ package kata.brackets.oo;
 import kata.brackets.GrammarChecker;
 import kata.brackets.ParserException;
 import kata.brackets.Token;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 import java.util.stream.Stream;
 
-@Slf4j
+//@Slf4j
 public class Parser implements GrammarChecker {
     private ParseContext context = new ParseContext();
 

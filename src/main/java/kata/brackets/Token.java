@@ -1,8 +1,8 @@
 package kata.brackets;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+//@Slf4j
 public enum Token {
     OPEN_BRACKET("["),
     CLOSE_BRACKET("]");
@@ -17,7 +17,7 @@ public enum Token {
 
     public static Token of(String tokenString) {
         try {
-            log.trace("Processing {}", tokenString);
+//            log.trace("Processing {}", tokenString);
             for (Token token : Token.values()) {
                 if (token.asString().equals(tokenString)) {
                     return token;
