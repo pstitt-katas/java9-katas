@@ -15,10 +15,11 @@
 
     <dependencies>
 
+        <!--TODO Add lombok when there is a stable version for java 9 - see https://projectlombok.org/setup/javac-->
         <!--<dependency>-->
             <!--<groupId>org.projectlombok</groupId>-->
             <!--<artifactId>lombok</artifactId>-->
-            <!--<version>1.16.20</version>-->
+            <!--<version>1.16.21</version>-->
             <!--<scope>provided</scope>-->
         <!--</dependency>-->
 

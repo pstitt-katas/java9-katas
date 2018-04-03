@@ -85,7 +85,7 @@ class AnagramTest {
 
         @Test
         void noAnagramsProduceOneGroupPerWord() {
-            AnagramGroups groups = group ("add", "subtract");
+            AnagramGroups groups = group("add", "subtract");
             assertEquals(2, groups.numberOfGroups());
         }
 
@@ -102,9 +102,7 @@ class AnagramTest {
 
         @Test
         void handleFileNotExisting() {
-            assertThrows(IOException.class, () -> {
-                reader.loadAnagramGroups("http://codekata.com/data/bad.url");
-            });
+            assertThrows(IOException.class, () -> reader.loadAnagramGroups("http://codekata.com/data/bad.url"));
         }
 
         @Test
