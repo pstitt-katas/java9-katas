@@ -10,6 +10,7 @@ public class ReducingChecker implements GrammarChecker {
 
     @Override
     public boolean isBalanced(Stream<Token> tokenStream) {
+        // A bit of a bastardisation of the 3 argument form of reduce, but it works. TODO Find a more elegant way.
         return tokenStream.reduce(
                 new ParseContext(),
                 (ctx, token) -> updateContext(token, ctx),

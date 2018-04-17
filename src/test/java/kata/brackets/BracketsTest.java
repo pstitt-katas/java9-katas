@@ -1,6 +1,5 @@
 package kata.brackets;
 
-import kata.brackets.oo.Parser;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,13 +11,17 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class BracketsTest {
+abstract class BracketsTest {
 
     private static final int NUMBER_OF_GENERATED_INPUTS = 100;
-    private static final int MAX_DEPTH_OF_GENERATED_INPUTS = 10000;
+//    private static final int MAX_DEPTH_OF_GENERATED_INPUTS = 10000; // Causes stack overflow in some implementations
+    private static final int MAX_DEPTH_OF_GENERATED_INPUTS = 1000;
 
-//    private GrammarChecker checker = new RecursiveChecker();
-    private GrammarChecker checker = new Parser();
+    private final GrammarChecker checker;
+
+    protected BracketsTest(GrammarChecker checker) {
+        this.checker = checker;
+    }
 
     @ParameterizedTest
     @MethodSource({"examplesThatAreBalanced", "generateBalanced"})

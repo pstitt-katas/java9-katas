@@ -11,10 +11,6 @@ public class WordFileReader {
         return loadAnagramGroups(this.getClass().getResource(path));
     }
 
-    public AnagramGroups loadAnagramGroups(String url) throws IOException {
-        return loadAnagramGroups(new URL(url));
-    }
-
     public AnagramGroups loadAnagramGroups(URL url) throws IOException {
         AnagramGroups groups = new AnagramGroups();
         URLConnection connection = url.openConnection();

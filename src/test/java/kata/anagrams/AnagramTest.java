@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -102,7 +103,7 @@ class AnagramTest {
 
         @Test
         void handleFileNotExisting() {
-            assertThrows(IOException.class, () -> reader.loadAnagramGroups("http://codekata.com/data/bad.url"));
+            assertThrows(IOException.class, () -> reader.loadAnagramGroups(new URL("http://codekata.com/data/bad.url")));
         }
 
         @Test

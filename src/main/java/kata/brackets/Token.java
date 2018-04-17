@@ -16,18 +16,12 @@ public enum Token {
     }
 
     public static Token of(String tokenString) {
-        try {
-//            log.trace("Processing {}", tokenString);
-            for (Token token : Token.values()) {
-                if (token.asString().equals(tokenString)) {
-                    return token;
-                }
+        for (Token token : Token.values()) {
+            if (token.asString().equals(tokenString)) {
+                return token;
             }
-            throw new InvalidTokenException(tokenString);
         }
-        catch (IllegalArgumentException x) {
-            throw new InvalidTokenException(tokenString);
-        }
+        throw new InvalidTokenException(tokenString);
     }
 
     private final String val;
