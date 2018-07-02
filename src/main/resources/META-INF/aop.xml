@@ -1,8 +1,0 @@
-<aspectj>
-    <aspects>
-        <aspect name="experimentation.ExperimentAspect"/>
-        <weaver options="-verbose -showWeaveInfo">
-            <include within="com.bookinggo.*"/>
-        </weaver>
-    </aspects>
-</aspectj>
