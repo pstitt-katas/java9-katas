@@ -4,18 +4,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pstitt.katas</groupId>
-    <artifactId>java9-katas</artifactId>
+    <artifactId>experimentation-spike</artifactId>
     <version>DEV-SNAPSHOT</version>
 
     <properties>
         <encoding>UTF-8</encoding>
-        <java.version>9</java.version>
+        <java.version>1.8</java.version>
         <junit.version>5.1.0</junit.version>
     </properties>
 
     <dependencies>
 
-        <!--TODO Add lombok when there is a stable version for java 9 - see https://projectlombok.org/setup/javac-->
+        <!--TODO Add lombok when there is a stable version for java 10 - see https://projectlombok.org/setup/javac-->
         <!--<dependency>-->
             <!--<groupId>org.projectlombok</groupId>-->
             <!--<artifactId>lombok</artifactId>-->
@@ -42,6 +42,24 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.11.0</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-aop</artifactId>-->
+            <!--<version>5.0.7.RELEASE</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.1</version>
         </dependency>
 
         <!-- Test -->
@@ -114,6 +132,31 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>1.11</version>
+                <configuration>
+                    <complianceLevel>${java.version}</complianceLevel>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <showWeaveInfo>true</showWeaveInfo>
+                    <verbose>true</verbose>
+                    <Xlint>ignore</Xlint>
+                    <encoding>UTF-8 </encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- use this goal to weave all your main classes -->
+                            <goal>compile</goal>
+                            <!-- use this goal to weave all your test classes -->
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
