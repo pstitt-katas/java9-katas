@@ -71,21 +71,12 @@ dependencyManagement {
 dependencies {
     implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    implementation 'com.github.jknack:handlebars:4.1.2'
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-    implementation 'com.googlecode.htmlcompressor:htmlcompressor:1.5.2'
-    runtime 'io.micrometer:micrometer-registry-prometheus'
     implementation 'io.projectreactor:reactor-core:3.2.3.RELEASE'
-    implementation 'javax.validation:validation-api:2.0.1.Final'
-    implementation 'org.ahocorasick:ahocorasick:0.4.0'
     implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.apache.commons:commons-text:1.6'
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation 'org.slf4j:slf4j-api:1.7.25'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.1.0.RC3'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard:2.1.0.RC3'
 }
 
 // test dependencies
@@ -93,12 +84,10 @@ dependencies {
     testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
     testRuntime "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
 
-    testImplementation 'com.github.tomakehurst:wiremock-standalone:2.20.0'
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
     testImplementation 'org.mockito:mockito-core:2.23.4'
-    testImplementation "org.springframework.boot:spring-boot-starter-test"
-    testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock:2.1.0.RC3'
+    testImplementation 'io.projectreactor:reactor-test:3.2.3.RELEASE'
 }
 
 test {
