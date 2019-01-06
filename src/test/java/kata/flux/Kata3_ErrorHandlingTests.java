@@ -1,10 +1,13 @@
 package kata.flux;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-public class ErrorHandlingTests {
+@Slf4j
+public class Kata3_ErrorHandlingTests {
 
     @Test
     void errorEmittedByMono() {
@@ -68,6 +71,31 @@ public class ErrorHandlingTests {
 
         StepVerifier.create(mono)
                 .expectNext(DEFAULT_VALUE)
+                .expectComplete()
+                .verify();
+    }
+
+    @Test
+    void divideByZero_then_abort() {
+        Flux<Integer> flux = Flux.range(-2, 5)
+                .map(i -> (10/i));
+        Integer[] EXPECTED = {-5, -10}; // then divide by zero error
+
+        StepVerifier.create(flux)
+                .expectNext(EXPECTED)
+                .expectError(ArithmeticException.class)
+                .verify();
+    }
+
+    @Test
+    void divideByZero_then_continue() {
+        Flux<Integer> flux = Flux.range(-2, 5)
+                .map(i -> (10/i))
+                .onErrorContinue((error, i) -> log.error("error on element {}", i, error));
+        Integer[] EXPECTED = {-5, -10, 10, 5}; // skipped 0 value
+
+        StepVerifier.create(flux)
+                .expectNext(EXPECTED)
                 .expectComplete()
                 .verify();
     }

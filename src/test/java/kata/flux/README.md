@@ -1,9 +1,4 @@
 # Ideas for Katas
-- Flux and Mono
-- flatMap
-- zip
-- error handling
-- threading / publishOn / subscribeOn
-- parallel flux
-- cache
+- hot vs cold
 - writing clean and easy to read code with reactive streams
+- cache

@@ -7,7 +7,7 @@ import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class IntroToMonoTests {
+public class Kata1_IntroToMonoTests {
     @Nested
     class NoOpTests {
         @Test
