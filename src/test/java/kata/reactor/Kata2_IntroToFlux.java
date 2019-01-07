@@ -1,4 +1,4 @@
-package kata.flux;
+package kata.reactor;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Kata2_IntroToFluxTests {
+public class Kata2_IntroToFlux {
     @Nested
     class NoOpTests {
         @Test

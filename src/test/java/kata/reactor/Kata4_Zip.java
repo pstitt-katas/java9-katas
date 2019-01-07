@@ -1,4 +1,4 @@
-package kata.flux;
+package kata.reactor;
 
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
@@ -8,7 +8,7 @@ import reactor.util.function.Tuple2;
 
 import java.time.Duration;
 
-public class Kata4_ZipTests {
+public class Kata4_Zip {
 
     @Test
     void zipFlux() {

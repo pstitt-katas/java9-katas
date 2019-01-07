@@ -1,4 +1,4 @@
-package kata.flux;
+package kata.reactor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import java.util.function.BiFunction;
 import static java.lang.String.format;
 
 @Slf4j
-public class Kata5_ThreadingTests {
+public class Kata5_Threading {
 
     @Test
     void defaultThreads() {
