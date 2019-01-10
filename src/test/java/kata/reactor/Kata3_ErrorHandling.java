@@ -79,10 +79,9 @@ public class Kata3_ErrorHandling {
     void divideByZero_then_abort() {
         Flux<Integer> flux = Flux.range(-2, 5)
                 .map(i -> (10/i));
-        Integer[] EXPECTED = {-5, -10}; // then divide by zero error
 
         StepVerifier.create(flux)
-                .expectNext(EXPECTED)
+                .expectNext(-5, -10)
                 .expectError(ArithmeticException.class)
                 .verify();
     }
@@ -92,10 +91,9 @@ public class Kata3_ErrorHandling {
         Flux<Integer> flux = Flux.range(-2, 5)
                 .map(i -> (10/i))
                 .onErrorContinue((error, i) -> log.error("error on element {}", i, error));
-        Integer[] EXPECTED = {-5, -10, 10, 5}; // skipped 0 value
 
         StepVerifier.create(flux)
-                .expectNext(EXPECTED)
+                .expectNext(-5, -10, 10, 5)
                 .expectComplete()
                 .verify();
     }
